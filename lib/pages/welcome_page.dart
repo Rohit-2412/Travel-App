@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_first_app/cubit/app_cubits.dart';
 import 'package:my_first_app/widgets/app_large_text.dart';
 import 'package:my_first_app/widgets/responsive_button.dart';
 
@@ -49,7 +51,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   fit: BoxFit.cover),
             ),
             child: Container(
-              margin: EdgeInsets.only(top: 150, left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 150, left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -63,7 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         text: headings[index],
                         size: 30,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
@@ -74,18 +76,31 @@ class _WelcomePageState extends State<WelcomePage> {
                           size: 14,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
-                      ResponsiveButton(
-                        width: 120,
+                      GestureDetector(
+                        onTap: () {
+                          BlocProvider.of<AppCubits>(context).getData();
+                        },
+                        child: Container(
+                          width: 150,
+                          child: Row(
+                            children: [
+                              ResponsiveButton(
+                                width: 120,
+                              ),
+                            ],
+                          ),
+                        ),
                       )
                     ],
                   ),
+                  // dots at the top right
                   Column(
                     children: List.generate(3, (idxDots) {
                       return Container(
-                        margin: EdgeInsets.only(bottom: 5),
+                        margin: const EdgeInsets.only(bottom: 5),
                         width: 8,
                         height: idxDots == index ? 25 : 8,
                         decoration: BoxDecoration(

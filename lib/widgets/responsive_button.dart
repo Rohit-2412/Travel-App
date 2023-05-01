@@ -14,7 +14,7 @@ class ResponsiveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Container(
-        width: isResponsive == true ? double.maxFinite : 60,
+        width: isResponsive == true ? double.maxFinite : width,
         height: 60,
         decoration: BoxDecoration(
           color: AppColors.mainColor,
