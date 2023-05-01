@@ -49,8 +49,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey.withOpacity(0.5)),
+                        image: const DecorationImage(
+                            image: AssetImage("assets/images/profile_pic.png"),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ]),
                 ),
@@ -126,6 +129,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         );
                       },
                     ),
+
+                    // 2nd tab page data
+                    Container(),
+
+                    // 3rd tab page data
+                    Container()
                   ]),
                 ),
 
@@ -195,6 +204,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             AppText(
                               text: image.values.elementAt(index),
                               color: AppColors.textColor2,
+                              size: 15,
                             )
                           ],
                         ),
